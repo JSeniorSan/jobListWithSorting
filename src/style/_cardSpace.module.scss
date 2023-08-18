@@ -1,0 +1,118 @@
+@import "mixins.module";
+
+.firstStringContent {
+  @apply flex items-center;
+}
+
+.grayColorText {
+  @apply text-xs text-gray-400 font-normal;
+}
+
+.cardWrapper {
+  @apply flex w-full p-3 pt-5 h-full border shadow-lg rounded-md z-30 bg-white shadow-teal-200;
+
+  .content {
+    @apply flex flex-col w-full h-full gap-2;
+    @include adaptive() {
+      @apply flex-row justify-between items-center;
+    }
+  }
+  .firstContent {
+    @apply flex justify-start relative border-b-2 border-gray-300 pb-3;
+    @include adaptive() {
+      @apply border-none flex-row gap-5 items-center;
+    }
+
+    .firstRow {
+      @apply flex flex-row gap-2;
+
+      .company {
+        @apply text-xs text-teal-600 font-bold;
+        @extend .firstStringContent;
+      }
+
+      .new {
+        @apply flex items-center;
+
+        .component {
+          @apply p-1 rounded-lg text-white
+            bg-teal-600 text-xs font-medium;
+        }
+      }
+      .featured {
+        @extend .firstStringContent;
+
+        .component {
+          @apply bg-black rounded-lg text-white font-medium p-1 text-xs;
+        }
+      }
+    }
+
+    .secondRow {
+      @apply font-bold text-base text-black hover:text-teal-600 cursor-default pb-4;
+    }
+    .grayColorTextDiv {
+      @apply flex flex-row gap-2 items-center;
+
+      .gray {
+        @extend .grayColorText;
+        @include adaptive() {
+          @apply text-base;
+        }
+      }
+    }
+  }
+  .avatar {
+    @apply rounded-full w-10 h-10 border absolute -translate-y-10;
+    @include adaptive() {
+      @apply translate-y-0 w-16 h-16 relative;
+    }
+  }
+
+  .image {
+    @apply h-full w-full z-0 object-cover absolute;
+  }
+  .mainInfo {
+    @apply flex flex-col gap-1;
+  }
+
+  .secondContent {
+    @apply flex flex-row justify-start items-center gap-2 p-1 flex-wrap;
+  }
+}
+
+.btn {
+  @apply text-teal-600 p-2 bg-gray-100 hover:text-gray-100 hover:bg-teal-600 h-8 text-sm flex flex-row justify-center items-center rounded-md;
+  @include adaptive() {
+    @apply text-base h-9;
+  }
+}
+
+.listWrapper {
+  @apply w-full h-5/6 flex flex-col gap-8 items-center m-5 bg-teal-100 px-4;
+  @include adaptive() {
+    @apply w-2/3;
+  }
+}
+
+.active {
+  @extend .cardWrapper;
+  @apply border-l-4 border-emerald-400 shadow-md;
+}
+
+.flexBtnX {
+  @apply flex flex-row;
+
+  .btnActive {
+    @apply text-teal-600 p-2 bg-gray-100 h-6 flex flex-row justify-center items-center rounded-none pr-3 text-sm font-semibold;
+    @include adaptive(1000px) {
+      @apply h-9 pr-6;
+    }
+  }
+  .x {
+    @apply h-6 w-auto border font-bold text-white text-base bg-teal-600 p-2 rounded-r flex justify-center items-center hover:bg-black;
+    @include adaptive(1000px) {
+      @apply h-9;
+    }
+  }
+}
